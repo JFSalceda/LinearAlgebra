@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laptop
@@ -23,6 +25,10 @@ public class LineSegment {
             this.x = new double[]{0,0};
             this.y = new double[]{0,0};
         }
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
     public double[] getPoint(int ptr){

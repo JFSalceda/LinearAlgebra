@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laptop
@@ -23,6 +25,10 @@ public class Parabola {
         }
         this.constant = constant;
         this.opensVertically = opensVertically;
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
     public double getConstant(){

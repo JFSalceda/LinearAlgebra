@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laptop
@@ -17,6 +19,10 @@ public class Point {
     public Point(double x, double y){
         this.x = x;
         this.y = y;
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
     public double getXCoordinate(){

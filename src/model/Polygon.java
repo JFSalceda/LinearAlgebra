@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Graphics;
 import java.util.Arrays;
 
 /**
@@ -25,6 +26,10 @@ public class Polygon {
             this.xCoordinates = new double[]{0,0,0};
             this.yCoordinates = new double[]{0,0,0};
         }
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
     public double[] getPoint(int ptr){

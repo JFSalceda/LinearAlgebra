@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laptop
  */
-public class Vector {
+public class Vector implements Shape{
     
     private double x;
     private double y;
@@ -19,6 +21,10 @@ public class Vector {
         this.x = x;
         this.y = y;
         this.angle = angle;
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
      public double getXCoordinate(){

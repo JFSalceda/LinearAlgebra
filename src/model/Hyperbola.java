@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laptop
@@ -25,6 +27,10 @@ public class Hyperbola {
         this.constantX = constantX;
         this.constantY = constantY;
         this.opensVertically = opensVertically;
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
     public double getXConstant(){

@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laptop
@@ -23,6 +25,10 @@ public class Ellipse {
         }
         this.constantX = constantX;
         this.constantY = constantY;
+    }
+    
+    public void draw(Graphics g){
+        
     }
     
     public double getXConstant(){
