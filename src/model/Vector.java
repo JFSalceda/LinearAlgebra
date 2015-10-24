@@ -11,27 +11,23 @@ import java.awt.Graphics;
  *
  * @author Laptop
  */
-public class Vector implements Shape{
+public class Vector/* implements Shape*/{
     
-    private double x;
-    private double y;
+    private int x;
+    private int y;
     private double angle;
     
-    public Vector(double x, double y, double angle){
+    public Vector(int x, int y, double angle){
         this.x = x;
         this.y = y;
         this.angle = angle;
     }
     
-    public void draw(Graphics g){
-        
-    }
-    
-     public double getXCoordinate(){
+     public int getXCoordinate(){
         return x;
     }
     
-    public double getYCoordinate(){
+    public int getYCoordinate(){
         return y;
     }
     
@@ -39,11 +35,11 @@ public class Vector implements Shape{
         return angle;
     }
     
-    public void setXCoordinate(double x){
+    public void setXCoordinate(int x){
         this.x = x;
     }
     
-    public void setYCoordinate(double y){
+    public void setYCoordinate(int y){
         this.y = y;
     }
     
