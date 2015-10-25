@@ -14,13 +14,13 @@ import model.Shape;
  */
 public interface ShapeOperations {
     public void draw(Graphics g);
-    public void shear(Graphics g, double factor, boolean isXShear);
-    public void rotate(Graphics g, double angle);
-    public void translate(Graphics g, double x, double y);
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate);
-    public void contract(Graphics g, double factor);
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale);
-    public void uniformScale(Graphics g, double factor);
-    public void reflect(Graphics g, boolean reflectOverX);
+    public void shear(double factor, boolean isXShear);
+    public void rotate(double angle);
+    public void translate(double x, double y);
+    public void dilate(double factor, boolean isVerticalDilate);
+    public void contract(double factor);
+    public void nonUniformScale(double factor, boolean isVerticalScale);
+    public void uniformScale(double factor);
+    public void reflect(boolean reflectOverX);
     
 }

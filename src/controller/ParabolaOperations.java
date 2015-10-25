@@ -42,10 +42,10 @@ public class ParabolaOperations implements ShapeOperations{
 //            System.out.println(x +"," + y);
         }
     }
-     public void shear(Graphics g, double factor, boolean isXShear){
+     public void shear(double factor, boolean isXShear){
         //empty
     }
-    public void rotate(Graphics g, double angle){
+    public void rotate(double angle){
         if(angle == 180){
             this.parabola.setConstant(this.parabola.getConstant()*-1);
         }else if(angle == 90){
@@ -58,23 +58,23 @@ public class ParabolaOperations implements ShapeOperations{
             this.parabola.changeOrientation(!this.parabola.isVertical());
         }
     }
-    public void translate(Graphics g, double x, double y){
+    public void translate(double x, double y){
         this.parabola.setXCoordinate(this.parabola.getXCoordinate()+x);
         this.parabola.setYCoordinate(this.parabola.getYCoordinate()+y);
     }
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate){
+    public void dilate(double factor, boolean isVerticalDilate){
         this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
-    public void contract(Graphics g, double factor){
+    public void contract(double factor){
         this.parabola.setConstant(this.parabola.getConstant()/factor);
     }
-    public void uniformScale(Graphics g, double factor){
+    public void uniformScale(double factor){
         this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+    public void nonUniformScale(double factor, boolean isVerticalScale){
         this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
-    public void reflect(Graphics g, boolean reflectOverX){
+    public void reflect(boolean reflectOverX){
         if(reflectOverX){
             if(this.parabola.isVertical())
                 this.parabola.setConstant(this.parabola.getConstant()*-1);

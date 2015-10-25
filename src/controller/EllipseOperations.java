@@ -43,40 +43,40 @@ public class EllipseOperations implements ShapeOperations{
 //            System.out.println(x +"," + y);
 //        }
     }
-    public void shear(Graphics g, double factor, boolean isXShear){
+    public void shear(double factor, boolean isXShear){
         //empty
     }
-    public void rotate(Graphics g, double angle){
+    public void rotate(double angle){
         double handle = this.ellipse.getXConstant();
         this.ellipse.setXConstant(this.ellipse.getYConstant());
         this.ellipse.setYConstant(handle);
     }
-    public void translate(Graphics g, double x, double y){
+    public void translate(double x, double y){
         this.ellipse.setXCoordinate(this.ellipse.getXCoordinate()+x);
         this.ellipse.setYCoordinate(this.ellipse.getYCoordinate()+y);
     }
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate){
+    public void dilate(double factor, boolean isVerticalDilate){
          if(isVerticalDilate){
             this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
         }else{
             this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
         }
     }
-    public void contract(Graphics g, double factor){
+    public void contract(double factor){
         //le ask miki
     }
-    public void uniformScale(Graphics g, double factor){
+    public void uniformScale(double factor){
         this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
         this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
     }
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+    public void nonUniformScale(double factor, boolean isVerticalScale){
          if(isVerticalScale){
             this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
         }else{
             this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
         }
     }
-    public void reflect(Graphics g, boolean reflectOverX){
+    public void reflect(boolean reflectOverX){
         if(reflectOverX){
             this.ellipse.setYCoordinate(this.ellipse.getYCoordinate()*-1);
         }else{

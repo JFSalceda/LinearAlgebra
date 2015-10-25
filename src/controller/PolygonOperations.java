@@ -21,19 +21,18 @@ public class PolygonOperations implements ShapeOperations{
     }
     
     public void draw(Graphics g){
-        int[] xpoints = polygon.getXCoordinates();
-        int[] ypoints = polygon.getYCoordinates();
-        int[] tempX = new int[xpoints.length], tempY = new int[xpoints.length];
+        int[] xpoints = new int[polygon.getXCoordinates().length], ypoints = new int[polygon.getYCoordinates().length], tempX = new int[polygon.getXCoordinates().length], tempY = new int[polygon.getYCoordinates().length];
         
         for(int k=0;k<xpoints.length;k++){
-            xpoints[k] += 290;
-            ypoints[k] -= 290;
+            xpoints[k] = polygon.getXCoordinates()[k] + 290;
+            ypoints[k] = 290 - polygon.getYCoordinates()[k];
             tempX[k] = xpoints[k];
             tempY[k] = ypoints[k];
+//            System.out.println(xpoints[k]+","+ypoints[k]);
+//            System.out.println(tempX[k]+","+tempY[k]+"\n");
         }
-        
         int handle;
-        g.fillPolygon(xpoints, ypoints, 4);
+        g.fillPolygon(xpoints, ypoints, xpoints.length);
         for(int i=0; i<xpoints.length-1;i++){
             for(int j=i+1;j<xpoints.length;j++){
                 handle = xpoints[i];
@@ -42,16 +41,17 @@ public class PolygonOperations implements ShapeOperations{
                 handle = ypoints[i];
                 ypoints[i] = ypoints[j];
                 ypoints[j] = handle;
-                g.fillPolygon(xpoints, ypoints, 4);
+                g.fillPolygon(xpoints, ypoints, xpoints.length);
                 for(int k=0;k<xpoints.length;k++){
                     xpoints[k] = tempX[k];
                     ypoints[k] = tempY[k];
                 }
-//                System.out.println("");
+                System.out.println(xpoints[j]+","+ypoints[j]);
             }
         }
+        System.out.println("");
     }
-    public void shear(Graphics g, double factor, boolean isXShear){
+    public void shear(double factor, boolean isXShear){
         int[] xCoordinates = this.polygon.getXCoordinates();
         int[] yCoordinates = this.polygon.getYCoordinates();
         if(isXShear){//x' = x + ay
@@ -66,7 +66,7 @@ public class PolygonOperations implements ShapeOperations{
             this.polygon.setYCoordinates(yCoordinates);
         }
     }
-    public void rotate(Graphics g, double angle){
+    public void rotate(double angle){
         if(angle >= 0){
             int[] xCoordinates = this.polygon.getXCoordinates();
             int[] yCoordinates = this.polygon.getYCoordinates();
@@ -87,7 +87,7 @@ public class PolygonOperations implements ShapeOperations{
             this.polygon.setYCoordinates(yCoordinates);
         }
     }
-    public void translate(Graphics g, double x, double y){
+    public void translate(double x, double y){
         int[] xCoordinates, yCoordinates;
         xCoordinates = this.polygon.getXCoordinates();
         yCoordinates = this.polygon.getYCoordinates();
@@ -98,7 +98,7 @@ public class PolygonOperations implements ShapeOperations{
         this.polygon.setXCoordinates(xCoordinates);
         this.polygon.setYCoordinates(yCoordinates);
     }
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate){
+    public void dilate(double factor, boolean isVerticalDilate){
         int[] xCoordinates, yCoordinates;
         if(isVerticalDilate){
             yCoordinates = this.polygon.getYCoordinates();
@@ -114,10 +114,10 @@ public class PolygonOperations implements ShapeOperations{
             this.polygon.setXCoordinates(xCoordinates);
         }
     }
-    public void contract(Graphics g, double factor){
+    public void contract(double factor){
         //le ask miki
     }
-    public void uniformScale(Graphics g, double factor){
+    public void uniformScale(double factor){
         int[] xCoordinates, yCoordinates;
         yCoordinates = this.polygon.getYCoordinates();
         xCoordinates = this.polygon.getXCoordinates();
@@ -128,7 +128,7 @@ public class PolygonOperations implements ShapeOperations{
         this.polygon.setXCoordinates(xCoordinates);
         this.polygon.setYCoordinates(yCoordinates);
     }
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+    public void nonUniformScale(double factor, boolean isVerticalScale){
         int[] xCoordinates, yCoordinates;
         if(isVerticalScale){
             yCoordinates = this.polygon.getYCoordinates();
@@ -144,7 +144,7 @@ public class PolygonOperations implements ShapeOperations{
             this.polygon.setXCoordinates(xCoordinates);
         }
     }
-    public void reflect(Graphics g, boolean reflectOverX){
+    public void reflect(boolean reflectOverX){
         if(reflectOverX){
             int[] yCoordinates = this.polygon.getYCoordinates();
             for(int i=0;i<yCoordinates.length;i++)

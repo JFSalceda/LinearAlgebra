@@ -21,30 +21,30 @@ public class PointOperations implements ShapeOperations{
     public void draw(Graphics g){
         g.drawLine(290+point.getXCoordinate(), 290-point.getYCoordinate(), 290+point.getXCoordinate(), 290-point.getYCoordinate());
     }
-    public void shear(Graphics g, double factor, boolean isXShear){
+    public void shear(double factor, boolean isXShear){
         //empty
     }
-    public void rotate(Graphics g, double angle){
+    public void rotate(double angle){
         //empty
     }
-    public void translate(Graphics g, double x, double y){
+    public void translate(double x, double y){
         this.point.setXCoordinate(this.point.getXCoordinate()+(int)x);
         this.point.setYCoordinate(this.point.getYCoordinate()+(int)y);
         
     }
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate){
+    public void dilate(double factor, boolean isVerticalDilate){
         //empty
     }
-    public void contract(Graphics g, double factor){
+    public void contract(double factor){
         //empty
     }
-    public void uniformScale(Graphics g, double factor){
+    public void uniformScale(double factor){
         //empty
     }
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+    public void nonUniformScale(double factor, boolean isVerticalScale){
         //empty
     }
-    public void reflect(Graphics g, boolean reflectOverX){
+    public void reflect(boolean reflectOverX){
         if(reflectOverX){
             this.point.setYCoordinate(this.point.getYCoordinate()*-1);
         }else{

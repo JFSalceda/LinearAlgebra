@@ -25,7 +25,7 @@ public class LineSegmentOperations implements ShapeOperations{
         
         g.drawLine(290+xCoordinates[0], 290-yCoordinates[0], 290+xCoordinates[1], 290-yCoordinates[1]);
     }
-     public void shear(Graphics g, double factor, boolean isXShear){
+     public void shear(double factor, boolean isXShear){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
         int[] yCoordinates = this.lineSegment.getYCoordinates();
         if(isXShear){//x' = x + ay
@@ -38,7 +38,7 @@ public class LineSegmentOperations implements ShapeOperations{
             this.lineSegment.setYCoordinates(yCoordinates);
         }
     }
-    public void rotate(Graphics g, double angle){
+    public void rotate(double angle){
         angle = Math.toRadians(angle);
         if(angle >= 0){
         // x' = xcos(rad)-ysin(rad)
@@ -64,7 +64,7 @@ public class LineSegmentOperations implements ShapeOperations{
             this.lineSegment.setYCoordinates(yCoordinates);
         }
     }
-    public void translate(Graphics g, double x, double y){
+    public void translate(double x, double y){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
         int[] yCoordinates = this.lineSegment.getYCoordinates();
         xCoordinates[0] += x;
@@ -74,7 +74,7 @@ public class LineSegmentOperations implements ShapeOperations{
         this.lineSegment.setXCoordinates(xCoordinates);
         this.lineSegment.setYCoordinates(yCoordinates);
     }
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate){
+    public void dilate(double factor, boolean isVerticalDilate){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
         int[] yCoordinates = this.lineSegment.getYCoordinates();
         xCoordinates[0] *= factor;
@@ -84,7 +84,7 @@ public class LineSegmentOperations implements ShapeOperations{
         this.lineSegment.setXCoordinates(xCoordinates);
         this.lineSegment.setYCoordinates(yCoordinates);
     }
-    public void contract(Graphics g, double factor){
+    public void contract(double factor){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
         int[] yCoordinates = this.lineSegment.getYCoordinates();
         xCoordinates[0] /= factor;
@@ -94,7 +94,7 @@ public class LineSegmentOperations implements ShapeOperations{
         this.lineSegment.setXCoordinates(xCoordinates);
         this.lineSegment.setYCoordinates(yCoordinates);
     }
-    public void uniformScale(Graphics g, double factor){
+    public void uniformScale(double factor){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
         int[] yCoordinates = this.lineSegment.getYCoordinates();
         xCoordinates[0] *= factor;
@@ -104,7 +104,7 @@ public class LineSegmentOperations implements ShapeOperations{
         this.lineSegment.setXCoordinates(xCoordinates);
         this.lineSegment.setYCoordinates(yCoordinates);
     }
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+    public void nonUniformScale(double factor, boolean isVerticalScale){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
         int[] yCoordinates = this.lineSegment.getYCoordinates();
         xCoordinates[0] *= factor;
@@ -114,7 +114,7 @@ public class LineSegmentOperations implements ShapeOperations{
         this.lineSegment.setXCoordinates(xCoordinates);
         this.lineSegment.setYCoordinates(yCoordinates);
     }
-    public void reflect(Graphics g, boolean reflectOverX){
+    public void reflect(boolean reflectOverX){
         if(reflectOverX){
             int[] yCoordinates = this.lineSegment.getYCoordinates();
             yCoordinates[0] *= -1;

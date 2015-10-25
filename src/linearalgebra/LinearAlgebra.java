@@ -10,18 +10,13 @@ package linearalgebra;
  * @author Laptop
  */
 import javax.swing.JFrame;
+import view.DrawingFrame;
 
 public class LinearAlgebra {
 
     public static void main(String[] args) {
         
-        JFrame frame = new JFrame();
-        frame.setSize(600, 600);
-        frame.setTitle("Parabola");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.getContentPane().add(new NewClass());
-        frame.setVisible(true);
+        DrawingFrame draw = new DrawingFrame();
         
     }
     

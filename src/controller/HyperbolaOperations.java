@@ -41,38 +41,38 @@ public class HyperbolaOperations implements ShapeOperations{
             System.out.println(x +"," + y);
         }
     }
-     public void shear(Graphics g, double factor, boolean isXShear){
+     public void shear(double factor, boolean isXShear){
         //empty
     }
-    public void rotate(Graphics g, double angle){
+    public void rotate(double angle){
         this.hyperbola.changeOrientation(!this.hyperbola.isVertical());
     }
-    public void translate(Graphics g, double x, double y){
+    public void translate(double x, double y){
         this.hyperbola.setXCoordinate(this.hyperbola.getXCoordinate()+x);
         this.hyperbola.setYCoordinate(this.hyperbola.getYCoordinate()+y);
     }
-    public void dilate(Graphics g, double factor, boolean isVerticalDilate){
+    public void dilate(double factor, boolean isVerticalDilate){
         if(isVerticalDilate){
             this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
         }else{
             this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
         }
     }
-    public void contract(Graphics g, double factor){
+    public void contract(double factor){
         //le ask miki
     }
-    public void uniformScale(Graphics g, double factor){
+    public void uniformScale(double factor){
         this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
         this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
     }
-    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+    public void nonUniformScale(double factor, boolean isVerticalScale){
         if(isVerticalScale){
             this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
         }else{
             this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
         }
     }
-    public void reflect(Graphics g, boolean reflectOverX){
+    public void reflect(boolean reflectOverX){
         //empty
     }
 }
