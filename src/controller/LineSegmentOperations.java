@@ -40,13 +40,44 @@ public class LineSegmentOperations implements ShapeOperations{
         this.lineSegment.setYCoordinates(yCoordinates);
     }
     public void dilate(Graphics g, double factor, boolean isVerticalDilate){
-        //empty
+        int[] xCoordinates = this.lineSegment.getXCoordinates();
+        int[] yCoordinates = this.lineSegment.getYCoordinates();
+        xCoordinates[0] *= factor;
+        yCoordinates[0] *= factor;
+        xCoordinates[1] *= factor;
+        yCoordinates[1] *= factor;
+        this.lineSegment.setXCoordinates(xCoordinates);
+        this.lineSegment.setYCoordinates(yCoordinates);
     }
     public void contract(Graphics g, double factor){
-        
+        int[] xCoordinates = this.lineSegment.getXCoordinates();
+        int[] yCoordinates = this.lineSegment.getYCoordinates();
+        xCoordinates[0] /= factor;
+        yCoordinates[0] /= factor;
+        xCoordinates[1] /= factor;
+        yCoordinates[1] /= factor;
+        this.lineSegment.setXCoordinates(xCoordinates);
+        this.lineSegment.setYCoordinates(yCoordinates);
     }
-    public void scale(Graphics g, boolean isUniform){
-        
+    public void uniformScale(Graphics g, double factor){
+        int[] xCoordinates = this.lineSegment.getXCoordinates();
+        int[] yCoordinates = this.lineSegment.getYCoordinates();
+        xCoordinates[0] *= factor;
+        yCoordinates[0] *= factor;
+        xCoordinates[1] *= factor;
+        yCoordinates[1] *= factor;
+        this.lineSegment.setXCoordinates(xCoordinates);
+        this.lineSegment.setYCoordinates(yCoordinates);
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+        int[] xCoordinates = this.lineSegment.getXCoordinates();
+        int[] yCoordinates = this.lineSegment.getYCoordinates();
+        xCoordinates[0] *= factor;
+        yCoordinates[0] *= factor;
+        xCoordinates[1] *= factor;
+        yCoordinates[1] *= factor;
+        this.lineSegment.setXCoordinates(xCoordinates);
+        this.lineSegment.setYCoordinates(yCoordinates);
     }
     public void reflect(Graphics g, boolean reflectOverX){
         if(reflectOverX){

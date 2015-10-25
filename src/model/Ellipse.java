@@ -27,10 +27,6 @@ public class Ellipse {
         this.constantY = constantY;
     }
     
-    public void draw(Graphics g){
-        
-    }
-    
     public double getXConstant(){
         return this.constantX;
     }

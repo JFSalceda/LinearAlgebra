@@ -13,31 +13,27 @@ import java.awt.Graphics;
  */
 public class Point {
     
-    private double x;
-    private double y;
+    private int x;
+    private int y;
     
-    public Point(double x, double y){
+    public Point(int x, int y){
         this.x = x;
         this.y = y;
     }
     
-    public void draw(Graphics g){
-        
-    }
-    
-    public double getXCoordinate(){
+    public int getXCoordinate(){
         return x;
     }
     
-    public double getYCoordinate(){
+    public int getYCoordinate(){
         return y;
     }
     
-    public void setXCoordinate(double x){
+    public void setXCoordinate(int x){
         this.x = x;
     }
     
-    public void setYCoordinate(double y){
+    public void setYCoordinate(int y){
         this.y = y;
     }
     

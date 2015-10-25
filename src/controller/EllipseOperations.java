@@ -45,7 +45,7 @@ public class EllipseOperations implements ShapeOperations{
     }
     //public void shear(Graphics g);
     public void rotate(Graphics g, double angle){
-        
+        //static rotate only
     }
     public void translate(Graphics g, double x, double y){
         this.ellipse.setXCoordinate(this.ellipse.getXCoordinate()+x);
@@ -53,16 +53,24 @@ public class EllipseOperations implements ShapeOperations{
     }
     public void dilate(Graphics g, double factor, boolean isVerticalDilate){
          if(isVerticalDilate){
-            this.ellipse.setYConstant(this.ellipse.getYConstant()/factor);
+            this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
         }else{
-            this.ellipse.setXConstant(this.ellipse.getXConstant()/factor);
+            this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
         }
     }
     public void contract(Graphics g, double factor){
         
     }
-    public void scale(Graphics g, boolean isUniform){
-        
+    public void uniformScale(Graphics g, double factor){
+        this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
+        this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+         if(isVerticalScale){
+            this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
+        }else{
+            this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
+        }
     }
     public void reflect(Graphics g, boolean reflectOverX){
         if(reflectOverX){

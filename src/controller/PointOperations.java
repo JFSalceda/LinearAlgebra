@@ -36,7 +36,10 @@ public class PointOperations implements ShapeOperations{
     public void contract(Graphics g, double factor){
         //empty
     }
-    public void scale(Graphics g, boolean isUniform){
+    public void uniformScale(Graphics g, double factor){
+        //empty
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
         //empty
     }
     public void reflect(Graphics g, boolean reflectOverX){

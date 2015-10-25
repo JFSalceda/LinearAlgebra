@@ -29,10 +29,6 @@ public class Hyperbola {
         this.opensVertically = opensVertically;
     }
     
-    public void draw(Graphics g){
-        
-    }
-    
     public double getXConstant(){
         return this.constantX;
     }

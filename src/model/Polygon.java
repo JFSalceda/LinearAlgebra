@@ -14,50 +14,46 @@ import java.util.Arrays;
  */
 public class Polygon {
     
-    private double[] xCoordinates;
-    private double[] yCoordinates;
+    private int[] xCoordinates;
+    private int[] yCoordinates;
     
-    public Polygon(double[] xCoordinates, double[] yCoordinates){
+    public Polygon(int[] xCoordinates, int[] yCoordinates){
         if(xCoordinates.length == yCoordinates.length){
             this.xCoordinates = xCoordinates;
             this.yCoordinates = yCoordinates;
         }
         else{
-            this.xCoordinates = new double[]{0,0,0};
-            this.yCoordinates = new double[]{0,0,0};
+            this.xCoordinates = new int[]{0,0,0};
+            this.yCoordinates = new int[]{0,0,0};
         }
     }
     
-    public void draw(Graphics g){
-        
+    public int[] getPoint(int ptr){
+        return new int[]{this.xCoordinates[ptr], this.yCoordinates[ptr]};
     }
     
-    public double[] getPoint(int ptr){
-        return new double[]{this.xCoordinates[ptr], this.yCoordinates[ptr]};
-    }
-    
-    public void setPoint(double x, double y, int ptr){
+    public void setPoint(int x, int y, int ptr){
         this.xCoordinates[ptr] = x;
         this.yCoordinates[ptr] = y;
     }
     
-    public double[] getXCoordinates(){
+    public int[] getXCoordinates(){
         return this.xCoordinates;
     }
     
-    public void setXCoordinates(double[] xCoordinates){
+    public void setXCoordinates(int[] xCoordinates){
         this.xCoordinates = xCoordinates;
     }
     
-    public double[] getYCoordinates(){
+    public int[] getYCoordinates(){
         return this.yCoordinates;
     }
     
-    public void setYCoordinates(double[] yCoordinates){
+    public void setYCoordinates(int[] yCoordinates){
         this.yCoordinates = yCoordinates;
     }
     
-    public void addPoint(double x, double y){
+    public void addPoint(int x, int y){
         this.xCoordinates = Arrays.copyOf(this.xCoordinates, this.xCoordinates.length+1);
         this.yCoordinates = Arrays.copyOf(this.yCoordinates, this.yCoordinates.length+1);
         this.xCoordinates[this.xCoordinates.length-1] = x;
@@ -65,8 +61,8 @@ public class Polygon {
     }
     
     public void removePoint(int ptr){
-        double[] xhandle = this.xCoordinates;
-        double[] yhandle = this.yCoordinates;
+        int[] xhandle = this.xCoordinates;
+        int[] yhandle = this.yCoordinates;
         this.xCoordinates = Arrays.copyOf(this.xCoordinates, this.xCoordinates.length-1);
         this.yCoordinates = Arrays.copyOf(this.yCoordinates, this.yCoordinates.length-1);
         for(int i=0;i<this.xCoordinates.length-1;i++){

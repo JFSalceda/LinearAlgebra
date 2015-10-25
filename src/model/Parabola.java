@@ -27,10 +27,6 @@ public class Parabola {
         this.opensVertically = opensVertically;
     }
     
-    public void draw(Graphics g){
-        
-    }
-    
     public double getConstant(){
         return this.constant;
     }

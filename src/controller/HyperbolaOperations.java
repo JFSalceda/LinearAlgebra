@@ -43,7 +43,7 @@ public class HyperbolaOperations implements ShapeOperations{
     }
     //public void shear(Graphics g);
     public void rotate(Graphics g, double angle){
-        
+         //static rotate only
     }
     public void translate(Graphics g, double x, double y){
         this.hyperbola.setXCoordinate(this.hyperbola.getXCoordinate()+x);
@@ -51,16 +51,24 @@ public class HyperbolaOperations implements ShapeOperations{
     }
     public void dilate(Graphics g, double factor, boolean isVerticalDilate){
         if(isVerticalDilate){
-            this.hyperbola.setYConstant(this.hyperbola.getYConstant()/factor);
+            this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
         }else{
-            this.hyperbola.setXConstant(this.hyperbola.getXConstant()/factor);
+            this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
         }
     }
     public void contract(Graphics g, double factor){
         
     }
-    public void scale(Graphics g, boolean isUniform){
-        
+    public void uniformScale(Graphics g, double factor){
+        this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
+        this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+        if(isVerticalScale){
+            this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
+        }else{
+            this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
+        }
     }
     public void reflect(Graphics g, boolean reflectOverX){
         //empty

@@ -22,8 +22,7 @@ public class VectorOperations implements ShapeOperations{
     public void draw(Graphics g){
         int x = (int)vector.getXCoordinate();
         int y = (int)vector.getYCoordinate();
-        double angle = vector.getAngle();
-        g.drawLine(290+x, 290-y,(290+x)+(int)(2000*Math.cos(Math.toRadians(angle))) ,(290-y)-(int)(2000*Math.sin(Math.toRadians(angle))) );
+        g.drawLine(0, 0, 290+x, 290-y);
     }
     //public void shear(Graphics g);
     public void rotate(Graphics g, double angle){
@@ -35,19 +34,28 @@ public class VectorOperations implements ShapeOperations{
         
     }
     public void dilate(Graphics g, double factor, boolean isVerticalDilate){
-        if(isVerticalDilate){
-            
-        }else{
-            
-        }
+        this.vector.setXCoordinate(this.vector.getXCoordinate()*(int)factor);
+        this.vector.setYCoordinate(this.vector.getYCoordinate()*(int)factor);
     }
     public void contract(Graphics g, double factor){
         
+        this.vector.setXCoordinate(this.vector.getXCoordinate()/(int)factor);
+        this.vector.setYCoordinate(this.vector.getYCoordinate()/(int)factor);
     }
-    public void scale(Graphics g, boolean isUniform){
-        
+    public void uniformScale(Graphics g, double factor){
+        this.vector.setXCoordinate(this.vector.getXCoordinate()*(int)factor);
+        this.vector.setYCoordinate(this.vector.getYCoordinate()*(int)factor);
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+        this.vector.setXCoordinate(this.vector.getXCoordinate()*(int)factor);
+        this.vector.setYCoordinate(this.vector.getYCoordinate()*(int)factor);
     }
     public void reflect(Graphics g, boolean reflectOverX){
-        
+        if(reflectOverX){
+            this.vector.setYCoordinate(this.vector.getYCoordinate()*-1);
+        }else{
+            this.vector.setXCoordinate(this.vector.getXCoordinate()*-1);
+            
+        }
     }
 }

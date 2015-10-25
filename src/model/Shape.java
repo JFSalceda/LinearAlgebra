@@ -12,5 +12,4 @@ import java.awt.Graphics;
  * @author Laptop
  */
 public interface Shape {
-    public void draw(Graphics g);
 }

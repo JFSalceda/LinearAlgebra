@@ -19,7 +19,8 @@ public interface ShapeOperations {
     public void translate(Graphics g, double x, double y);
     public void dilate(Graphics g, double factor, boolean isVerticalDilate);
     public void contract(Graphics g, double factor);
-    public void scale(Graphics g, boolean isUniform);
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale);
+    public void uniformScale(Graphics g, double factor);
     public void reflect(Graphics g, boolean reflectOverX);
     
 }

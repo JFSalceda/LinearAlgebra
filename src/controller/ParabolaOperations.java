@@ -44,20 +44,23 @@ public class ParabolaOperations implements ShapeOperations{
     }
     //public void shear(Graphics g);
     public void rotate(Graphics g, double angle){
-        
+         //static rotate only
     }
     public void translate(Graphics g, double x, double y){
         this.parabola.setXCoordinate(this.parabola.getXCoordinate()+x);
         this.parabola.setYCoordinate(this.parabola.getYCoordinate()+y);
     }
     public void dilate(Graphics g, double factor, boolean isVerticalDilate){
-        this.parabola.setConstant(this.parabola.getConstant()/factor);
+        this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
     public void contract(Graphics g, double factor){
-        
+        this.parabola.setConstant(this.parabola.getConstant()/factor);
     }
-    public void scale(Graphics g, boolean isUniform){
-        
+    public void uniformScale(Graphics g, double factor){
+        this.parabola.setConstant(this.parabola.getConstant()*factor);
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+        this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
     public void reflect(Graphics g, boolean reflectOverX){
         if(reflectOverX){

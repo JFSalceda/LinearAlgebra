@@ -20,33 +20,69 @@ public class NewClass extends Component {
     
     public void paint(Graphics g) //parabola
     {
+        g.setColor(Color.BLACK);
+        for(int i=0;i<=600;i++){
+            if(i%30==0){
+                g.drawLine(0,i+290,600,i+290); 
+                g.drawLine(i+290,0,i+290,600); 
+                g.drawLine(0,290-i,600,290-i); 
+                g.drawLine(290-i,0,290-i,600); 
+            }
+        }
+        Graphics2D g2 = (Graphics2D)g;
+        g2.setStroke(new BasicStroke(5));
+        g.setColor(Color.RED);
         g.drawLine(0,290,600,290); // x-axis
         g.drawLine(290,0,290,600); // y-axis
         g.setColor(Color.BLACK);
-        int a = 81;
+        g2.setStroke(new BasicStroke(1));
+        int a = -64;
         int b = 64;
-        int centerX = 100;
-        int centerY = 100;
+        int centerX = 0;
+        int centerY = 0;
         int x2, y2;
         x2 = 81;
         y2 = 64;
         
 //        drawHyperbola(g, a, b, centerX, centerY, true);
-//        drawParabola(g, a, centerX, centerY, true);
+//        drawParabola(g, a, centerX, centerY, false);
 //        drawEllipse(g, a, b, centerX, centerY);
 ////        g.drawRect(290+Math.min(a, x2), 290-Math.max(b, y2), Math.abs(a-x2), Math.abs(b-y2));
 //        g.drawLine(290+a, 290-b,(290+a)+(int)(2000*Math.cos(Math.toRadians(289))) ,(290-b)-(int)(2000*Math.sin(Math.toRadians(289))) );
-//         int[] xpoints = {290+10,290+20,290+50,290+40,290+-50};
-//         int[] ypoints = {290-30,290-40,290-60,290-70,290-(-80)};
-//         Graphics2D g2 = (Graphics2D)g;
-//         g2.setStroke(new BasicStroke(5));
-//         g.drawLine((int)56.2342, (int)24.5454, 100, 120);
+//        g.drawLine(290+(int)56.2342, 290-(int)24.5454, 290+100, 290-120);
+//         int[] xpoints = {290+100,290+200,290+170,290+140,290+150};
+//         int[] ypoints = {290-130,290-140,290-160,290-170,290-(-180)};
+//         g2.drawLine(xpoints[0], ypoints[0], xpoints[0], ypoints[0]);
 //         g2.drawLine(xpoints[1], ypoints[1], xpoints[1], ypoints[1]);
 //         g2.drawLine(xpoints[2], ypoints[2], xpoints[2], ypoints[2]);
 //         g2.drawLine(xpoints[3], ypoints[3], xpoints[3], ypoints[3]);
 //         g2.drawLine(xpoints[4], ypoints[4], xpoints[4], ypoints[4]);
 //         g2.setStroke(new BasicStroke(1));
-//         g.drawPolygon(xpoints, ypoints, 5);
+//         int[] tempX = new int[xpoints.length], tempY = new int[xpoints.length];
+//         for(int k=0;k<xpoints.length;k++){
+//            tempX[k] = xpoints[k];
+//            tempY[k] = ypoints[k];
+//         }
+//         int handle;
+//         
+//         g.fillPolygon(xpoints, ypoints, 4);
+//         for(int i=0; i<xpoints.length-1;i++){
+//             for(int j=i+1;j<xpoints.length;j++){
+//                 handle = xpoints[i];
+//                 xpoints[i] = xpoints[j];
+//                 xpoints[j] = handle;
+//                 handle = ypoints[i];
+//                 ypoints[i] = ypoints[j];
+//                 ypoints[j] = handle;
+//                 g.fillPolygon(xpoints, ypoints, 4);
+//                 for(int k=0;k<xpoints.length;k++){
+//                     xpoints[k] = tempX[k];
+//                     ypoints[k] = tempY[k];
+//                 }
+////                System.out.println("");
+//             }
+//         }
+         
          
     }
     
@@ -72,19 +108,29 @@ public class NewClass extends Component {
     public void drawEllipse(Graphics g, int constantX, int constantY, int centerX, int centerY){
         Graphics2D g2 = (Graphics2D)g;
         //g2.setStroke(new BasicStroke(5));
-        g2.draw(new Ellipse2D.Double((290+centerX)-constantX, (290-centerY)-constantY,
-                             constantX*2,
-                             constantY*2));
+//        g2.draw(new Ellipse2D.Double((290+centerX)-constantX, (290-centerY)-constantY,
+//                             constantX*2,
+//                             constantY*2));
         
 //        for(int x=-constantX;x<=constantX;x++) //revised Ellipse method. Can possibly be used for diagonal ellipses
 //        {
-//            double y = sqrt(((double)constantY*constantY)*(1-(((x-centerX)*(x-centerX))/((double)constantX*constantX))));
+//            double y = sqrt(((double)constantY*constantY)*(1-((((double)x*x))/((double)constantX*constantX))));
 //            int Y = (int)y;
-//            g.drawLine((290-centerY)+x,290+(centerY+Y),(290-centerY)+x,290+(centerY+Y)); ////opens horizontally
-//            g.drawLine((290-centerY)+x,290+(centerY-Y),(290-centerY)+x,290+(centerY-Y));
+//            g.drawLine((290+centerX)+x,290-(centerY+Y),(290+centerX)+x,290-(centerY+Y)); ////opens horizontally
+//            g.drawLine((290+centerX)+x,290-(centerY-Y),(290+centerX)+x,290-(centerY-Y));
 //            
 //            System.out.println(x +"," + y);
 //        }
+        
+        for(int x=-constantX;x<=constantX;x++) //rotated Ellipse method.
+        {
+            double y = (((double)constantX*constantX)*(1.0/Math.sin(Math.toRadians(25)))*(1.0/Math.cos(Math.toRadians(25))))/(4*x);
+            int Y = (int)y;
+            g.drawLine((290+centerX)+x,290-(centerY+Y),(290+centerX)+x,290-(centerY+Y)); ////opens horizontally
+            g.drawLine((290+centerX)+x,290-(centerY-Y),(290+centerX)+x,290-(centerY-Y));
+            
+            System.out.println(x +"," + y);
+        }
         
     }
     

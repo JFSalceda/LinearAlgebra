@@ -71,13 +71,13 @@ public class PolygonOperations implements ShapeOperations{
         if(isVerticalDilate){
             yCoordinates = this.polygon.getYCoordinates();
             for(int i=0;i<yCoordinates.length;i++){
-                yCoordinates[i]/=factor;
+                yCoordinates[i]*=factor;
             }
             this.polygon.setYCoordinates(yCoordinates);
         }else{
             xCoordinates = this.polygon.getXCoordinates();
             for(int i=0;i<xCoordinates.length;i++){
-                xCoordinates[i]/=factor;
+                xCoordinates[i]*=factor;
             }
             this.polygon.setXCoordinates(xCoordinates);
         }
@@ -85,8 +85,32 @@ public class PolygonOperations implements ShapeOperations{
     public void contract(Graphics g, double factor){
         
     }
-    public void scale(Graphics g, boolean isUniform){
-        
+    public void uniformScale(Graphics g, double factor){
+        int[] xCoordinates, yCoordinates;
+        yCoordinates = this.polygon.getYCoordinates();
+        xCoordinates = this.polygon.getXCoordinates();
+        for(int i=0;i<yCoordinates.length;i++){
+            yCoordinates[i]*=factor;
+            xCoordinates[i]*=factor;
+        }
+        this.polygon.setXCoordinates(xCoordinates);
+        this.polygon.setYCoordinates(yCoordinates);
+    }
+    public void nonUniformScale(Graphics g, double factor, boolean isVerticalScale){
+        int[] xCoordinates, yCoordinates;
+        if(isVerticalScale){
+            yCoordinates = this.polygon.getYCoordinates();
+            for(int i=0;i<yCoordinates.length;i++){
+                yCoordinates[i]*=factor;
+            }
+            this.polygon.setYCoordinates(yCoordinates);
+        }else{
+            xCoordinates = this.polygon.getXCoordinates();
+            for(int i=0;i<xCoordinates.length;i++){
+                xCoordinates[i]*=factor;
+            }
+            this.polygon.setXCoordinates(xCoordinates);
+        }
     }
     public void reflect(Graphics g, boolean reflectOverX){
         

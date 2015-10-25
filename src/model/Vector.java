@@ -15,12 +15,10 @@ public class Vector/* implements Shape*/{
     
     private int x;
     private int y;
-    private double angle;
     
-    public Vector(int x, int y, double angle){
+    public Vector(int x, int y){
         this.x = x;
         this.y = y;
-        this.angle = angle;
     }
     
      public int getXCoordinate(){
@@ -31,19 +29,11 @@ public class Vector/* implements Shape*/{
         return y;
     }
     
-    public double getAngle(){
-        return angle;
-    }
-    
     public void setXCoordinate(int x){
         this.x = x;
     }
     
     public void setYCoordinate(int y){
         this.y = y;
-    }
-    
-    public void setAngle(double angle){
-        this.angle = angle;
     }
 }
