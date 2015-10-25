@@ -21,9 +21,11 @@ public class PointOperations implements ShapeOperations{
     public void draw(Graphics g){
         g.drawLine(290+point.getXCoordinate(), 290-point.getYCoordinate(), 290+point.getXCoordinate(), 290-point.getYCoordinate());
     }
-    //public void shear(Graphics g);
+    public void shear(Graphics g, double factor, boolean isXShear){
+        //empty
+    }
     public void rotate(Graphics g, double angle){
-        
+        //empty
     }
     public void translate(Graphics g, double x, double y){
         this.point.setXCoordinate(this.point.getXCoordinate()+(int)x);

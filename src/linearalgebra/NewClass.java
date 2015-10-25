@@ -36,7 +36,7 @@ public class NewClass extends Component {
         g.drawLine(290,0,290,600); // y-axis
         g.setColor(Color.BLACK);
         g2.setStroke(new BasicStroke(1));
-        int a = -64;
+        int a = 4;
         int b = 64;
         int centerX = 0;
         int centerY = 0;
@@ -45,7 +45,7 @@ public class NewClass extends Component {
         y2 = 64;
         
 //        drawHyperbola(g, a, b, centerX, centerY, true);
-//        drawParabola(g, a, centerX, centerY, false);
+        drawParabola(g, a, centerX, centerY, false);
 //        drawEllipse(g, a, b, centerX, centerY);
 ////        g.drawRect(290+Math.min(a, x2), 290-Math.max(b, y2), Math.abs(a-x2), Math.abs(b-y2));
 //        g.drawLine(290+a, 290-b,(290+a)+(int)(2000*Math.cos(Math.toRadians(289))) ,(290-b)-(int)(2000*Math.sin(Math.toRadians(289))) );

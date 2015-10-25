@@ -41,9 +41,11 @@ public class HyperbolaOperations implements ShapeOperations{
             System.out.println(x +"," + y);
         }
     }
-    //public void shear(Graphics g);
+     public void shear(Graphics g, double factor, boolean isXShear){
+        //empty
+    }
     public void rotate(Graphics g, double angle){
-         //static rotate only
+        this.hyperbola.changeOrientation(!this.hyperbola.isVertical());
     }
     public void translate(Graphics g, double x, double y){
         this.hyperbola.setXCoordinate(this.hyperbola.getXCoordinate()+x);
@@ -57,7 +59,7 @@ public class HyperbolaOperations implements ShapeOperations{
         }
     }
     public void contract(Graphics g, double factor){
-        
+        //le ask miki
     }
     public void uniformScale(Graphics g, double factor){
         this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);

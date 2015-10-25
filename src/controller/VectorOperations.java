@@ -24,9 +24,26 @@ public class VectorOperations implements ShapeOperations{
         int y = (int)vector.getYCoordinate();
         g.drawLine(0, 0, 290+x, 290-y);
     }
-    //public void shear(Graphics g);
+    public void shear(Graphics g, double factor, boolean isXShear){
+        if(isXShear){//x' = x + ay
+            this.vector.setXCoordinate(this.vector.getXCoordinate() + (int)(factor * this.vector.getYCoordinate()));
+        }else{// y' = y + ax
+            this.vector.setYCoordinate(this.vector.getYCoordinate() + (int)(factor * this.vector.getXCoordinate()));
+        }
+    }
     public void rotate(Graphics g, double angle){
-        
+        angle = Math.toRadians(angle);
+        if(angle >= 0){
+        // x' = xcos(rad)-ysin(rad)
+        //y' = xsin(rad)+ycos(rad)
+            this.vector.setXCoordinate((this.vector.getXCoordinate() * (int)Math.cos(angle)) - (this.vector.getYCoordinate()  * (int)Math.sin(angle)));
+            this.vector.setYCoordinate((this.vector.getXCoordinate() * (int)Math.sin(angle)) + (this.vector.getYCoordinate()  * (int)Math.cos(angle)));
+        }else{
+        // x' = xcos(rad)+ysin(rad)
+        //y' = x(-sin(rad) + ycos(rad)
+            this.vector.setXCoordinate((this.vector.getXCoordinate() * (int)Math.cos(angle)) + (this.vector.getYCoordinate()  * (int)Math.sin(angle)));
+            this.vector.setYCoordinate(this.vector.getXCoordinate() * ((int)Math.sin(angle) * -1) + (this.vector.getYCoordinate()  * ((int)Math.cos(angle) * -1)));
+        }
     }
     public void translate(Graphics g, double x, double y){
         this.vector.setXCoordinate(this.vector.getXCoordinate()+(int)x);

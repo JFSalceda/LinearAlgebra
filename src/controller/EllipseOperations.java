@@ -43,9 +43,13 @@ public class EllipseOperations implements ShapeOperations{
 //            System.out.println(x +"," + y);
 //        }
     }
-    //public void shear(Graphics g);
+    public void shear(Graphics g, double factor, boolean isXShear){
+        //empty
+    }
     public void rotate(Graphics g, double angle){
-        //static rotate only
+        double handle = this.ellipse.getXConstant();
+        this.ellipse.setXConstant(this.ellipse.getYConstant());
+        this.ellipse.setYConstant(handle);
     }
     public void translate(Graphics g, double x, double y){
         this.ellipse.setXCoordinate(this.ellipse.getXCoordinate()+x);
@@ -59,7 +63,7 @@ public class EllipseOperations implements ShapeOperations{
         }
     }
     public void contract(Graphics g, double factor){
-        
+        //le ask miki
     }
     public void uniformScale(Graphics g, double factor){
         this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);

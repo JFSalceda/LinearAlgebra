@@ -14,7 +14,7 @@ import model.Shape;
  */
 public interface ShapeOperations {
     public void draw(Graphics g);
-    //public void shear(Graphics g);
+    public void shear(Graphics g, double factor, boolean isXShear);
     public void rotate(Graphics g, double angle);
     public void translate(Graphics g, double x, double y);
     public void dilate(Graphics g, double factor, boolean isVerticalDilate);

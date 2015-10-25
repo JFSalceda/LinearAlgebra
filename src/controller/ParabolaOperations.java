@@ -42,9 +42,21 @@ public class ParabolaOperations implements ShapeOperations{
 //            System.out.println(x +"," + y);
         }
     }
-    //public void shear(Graphics g);
+     public void shear(Graphics g, double factor, boolean isXShear){
+        //empty
+    }
     public void rotate(Graphics g, double angle){
-         //static rotate only
+        if(angle == 180){
+            this.parabola.setConstant(this.parabola.getConstant()*-1);
+        }else if(angle == 90){
+            if(this.parabola.isVertical())
+                this.parabola.setConstant(this.parabola.getConstant()*-1);
+            this.parabola.changeOrientation(!this.parabola.isVertical());
+        }else if(angle == -90){
+            if(!this.parabola.isVertical())
+                this.parabola.setConstant(this.parabola.getConstant()*-1);
+            this.parabola.changeOrientation(!this.parabola.isVertical());
+        }
     }
     public void translate(Graphics g, double x, double y){
         this.parabola.setXCoordinate(this.parabola.getXCoordinate()+x);

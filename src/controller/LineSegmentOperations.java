@@ -25,9 +25,44 @@ public class LineSegmentOperations implements ShapeOperations{
         
         g.drawLine(290+xCoordinates[0], 290-yCoordinates[0], 290+xCoordinates[1], 290-yCoordinates[1]);
     }
-    //public void shear(Graphics g);
+     public void shear(Graphics g, double factor, boolean isXShear){
+        int[] xCoordinates = this.lineSegment.getXCoordinates();
+        int[] yCoordinates = this.lineSegment.getYCoordinates();
+        if(isXShear){//x' = x + ay
+            xCoordinates[0] += xCoordinates[0] + factor * yCoordinates[0];
+            xCoordinates[1] += xCoordinates[1] + factor * yCoordinates[1];
+            this.lineSegment.setXCoordinates(xCoordinates);
+        }else{// y' = y + ax
+            yCoordinates[0] += yCoordinates[0] + factor * xCoordinates[0];
+            yCoordinates[1] += yCoordinates[1] + factor * xCoordinates[1];
+            this.lineSegment.setYCoordinates(yCoordinates);
+        }
+    }
     public void rotate(Graphics g, double angle){
-        
+        angle = Math.toRadians(angle);
+        if(angle >= 0){
+        // x' = xcos(rad)-ysin(rad)
+        //y' = xsin(rad)+ycos(rad)
+            int[] xCoordinates = this.lineSegment.getXCoordinates();
+            int[] yCoordinates = this.lineSegment.getYCoordinates();
+            xCoordinates[0] = (xCoordinates[0] * (int)Math.cos(angle)) - (yCoordinates[0] * (int)Math.sin(angle));
+            yCoordinates[0] += (xCoordinates[0] * (int)Math.sin(angle)) + (yCoordinates[0] * (int)Math.cos(angle));
+            xCoordinates[1] = (xCoordinates[1] * (int)Math.cos(angle)) - (yCoordinates[1] * (int)Math.sin(angle));
+            yCoordinates[1] += (xCoordinates[1] * (int)Math.sin(angle)) + (yCoordinates[1] * (int)Math.cos(angle));
+            this.lineSegment.setXCoordinates(xCoordinates);
+            this.lineSegment.setYCoordinates(yCoordinates);
+        }else{
+        // x' = xcos(rad)+ysin(rad)
+        //y' = x(-sin(rad) + ycos(rad)
+            int[] xCoordinates = this.lineSegment.getXCoordinates();
+            int[] yCoordinates = this.lineSegment.getYCoordinates();
+            xCoordinates[0] = (xCoordinates[0] * (int)Math.cos(angle)) + (yCoordinates[0] * (int)Math.sin(angle));
+            yCoordinates[0] += (xCoordinates[0] * ((int)Math.sin(angle) * -1)) + (yCoordinates[0] * (int)Math.cos(angle));
+            xCoordinates[1] = (xCoordinates[1] * (int)Math.cos(angle)) + (yCoordinates[1] * (int)Math.sin(angle));
+            yCoordinates[1] += (xCoordinates[1] * ((int)Math.sin(angle) * -1)) + (yCoordinates[1] * (int)Math.cos(angle));
+            this.lineSegment.setXCoordinates(xCoordinates);
+            this.lineSegment.setYCoordinates(yCoordinates);
+        }
     }
     public void translate(Graphics g, double x, double y){
         int[] xCoordinates = this.lineSegment.getXCoordinates();
