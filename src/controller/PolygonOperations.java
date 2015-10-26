@@ -12,12 +12,13 @@ import model.Polygon;
  *
  * @author Laptop
  */
-public class PolygonOperations implements ShapeOperations{
+public class PolygonOperations extends ShapeOperations{
     
     private Polygon polygon;
     
     public PolygonOperations(Polygon polygon){
         this.polygon = polygon;
+        super.selectShape(false);
     }
     
     public void draw(Graphics g){

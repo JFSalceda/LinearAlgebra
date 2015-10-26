@@ -15,12 +15,13 @@ import model.Ellipse;
  *
  * @author Laptop
  */
-public class EllipseOperations implements ShapeOperations{
+public class EllipseOperations extends ShapeOperations{
     
     private Ellipse ellipse;
     
     public EllipseOperations(Ellipse ellipse){
         this.ellipse = ellipse;
+        super.selectShape(false);
     }
     
     public void draw(Graphics g){

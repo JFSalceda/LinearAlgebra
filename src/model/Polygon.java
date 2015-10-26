@@ -19,8 +19,12 @@ public class Polygon {
     
     public Polygon(int[] xCoordinates, int[] yCoordinates){
         if(xCoordinates.length == yCoordinates.length){
-            this.xCoordinates = xCoordinates;
-            this.yCoordinates = yCoordinates;
+            this.xCoordinates = new int[xCoordinates.length];
+            this.yCoordinates = new int[yCoordinates.length];
+            for(int i=0;i<xCoordinates.length;i++){
+                this.xCoordinates[i] = xCoordinates[i];
+                this.yCoordinates[i] = yCoordinates[i];
+            }
         }
         else{
             this.xCoordinates = new int[]{0,0,0};
@@ -42,7 +46,9 @@ public class Polygon {
     }
     
     public void setXCoordinates(int[] xCoordinates){
-        this.xCoordinates = xCoordinates;
+        if(this.xCoordinates.length == xCoordinates.length){
+            System.arraycopy(xCoordinates, 0, this.xCoordinates, 0, xCoordinates.length);
+        }
     }
     
     public int[] getYCoordinates(){
@@ -50,7 +56,9 @@ public class Polygon {
     }
     
     public void setYCoordinates(int[] yCoordinates){
-        this.yCoordinates = yCoordinates;
+        if(this.yCoordinates.length == yCoordinates.length){
+          System.arraycopy(yCoordinates, 0, this.yCoordinates, 0, yCoordinates.length);
+        }
     }
     
     public void addPoint(int x, int y){
@@ -61,14 +69,16 @@ public class Polygon {
     }
     
     public void removePoint(int ptr){
-        int[] xhandle = this.xCoordinates;
-        int[] yhandle = this.yCoordinates;
+        int[] xhandle = new int[this.xCoordinates.length];
+        int[] yhandle = new int[this.yCoordinates.length];
+        System.arraycopy(xhandle, 0, this.xCoordinates, 0, xhandle.length);
+        System.arraycopy(yhandle, 0, this.yCoordinates, 0, yhandle.length);
         this.xCoordinates = Arrays.copyOf(this.xCoordinates, this.xCoordinates.length-1);
         this.yCoordinates = Arrays.copyOf(this.yCoordinates, this.yCoordinates.length-1);
         for(int i=0;i<this.xCoordinates.length-1;i++){
             if(i != ptr){
-               xCoordinates[i] = xhandle[i];
-               yCoordinates[i] = yhandle[i];
+               this.xCoordinates[i] = xhandle[i];
+               this.yCoordinates[i] = yhandle[i];
             }
         }
                 

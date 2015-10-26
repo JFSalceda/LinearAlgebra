@@ -13,12 +13,13 @@ import model.Hyperbola;
  *
  * @author Laptop
  */
-public class HyperbolaOperations implements ShapeOperations{
+public class HyperbolaOperations extends ShapeOperations{
     
     private Hyperbola hyperbola;
     
     public HyperbolaOperations(Hyperbola hyperbola){
         this.hyperbola = hyperbola;
+        super.selectShape(false);
     }
     
     public void draw(Graphics g){

@@ -18,8 +18,8 @@ public class LineSegment {
     
     public LineSegment(int x[], int y[]){
         if(x.length == 2 && y.length==2){
-            this.x = x;
-            this.y = y;
+            this.x = new int[x.length];
+            this.y = new int[y.length];
         }
         else{
             this.x = new int[]{0,0};

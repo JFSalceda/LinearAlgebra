@@ -12,11 +12,12 @@ import model.Vector;
  *
  * @author Laptop
  */
-public class VectorOperations implements ShapeOperations{
+public class VectorOperations extends ShapeOperations{
     private Vector vector;
     
     public VectorOperations(Vector vector){
         this.vector = vector;
+        super.selectShape(false);
     }
     
     public void draw(Graphics g){

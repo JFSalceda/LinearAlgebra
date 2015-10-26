@@ -19,7 +19,9 @@ public class Ellipse {
     
     public Ellipse(double constantX, double constantY, double[] vertex){
         if(vertex.length == 2){
-            this.vertex = vertex;
+            this.vertex = new double[vertex.length];
+            this.vertex[0] = vertex[0];
+            this.vertex[1] = vertex[1];
         }else{
             this.vertex = new double[]{0,0};
         }

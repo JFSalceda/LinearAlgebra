@@ -12,11 +12,12 @@ import model.LineSegment;
  *
  * @author Laptop
  */
-public class LineSegmentOperations implements ShapeOperations{
+public class LineSegmentOperations extends ShapeOperations{
     private LineSegment lineSegment;
     
     public LineSegmentOperations(LineSegment lineSegment){
         this.lineSegment = lineSegment;
+        super.selectShape(false);
     }
     
     public void draw(Graphics g){

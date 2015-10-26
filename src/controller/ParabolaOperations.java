@@ -13,11 +13,12 @@ import model.Parabola;
  *
  * @author Laptop
  */
-public class ParabolaOperations implements ShapeOperations{
+public class ParabolaOperations extends ShapeOperations{
     private Parabola parabola;
     
     public ParabolaOperations(Parabola parabola){
         this.parabola= parabola;
+        super.selectShape(false);
     }
     public void draw(Graphics g){
         double constant = this.parabola.getConstant();

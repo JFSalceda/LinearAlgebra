@@ -37,6 +37,8 @@ public class DrawingPanel extends JPanel{
     
     public DrawingPanel(){
         shapes = new ArrayList<ShapeOperations>();
+//        shapes.add(new VectorOperations(new Vector(120, 42)));
+//        ((ShapeOperations)shapes.get(0)).selectShape(true);
     }
     
     public void paintComponent(Graphics g){
@@ -58,11 +60,48 @@ public class DrawingPanel extends JPanel{
         g.setColor(Color.BLACK);
         g2.setStroke(new BasicStroke(2));
         for(int i=0;i<shapes.size();i++){
+            if(((ShapeOperations)shapes.get(i)).isShapeSelected()){
+                g.setColor(new Color(8,120,48));
+            }
             ((ShapeOperations)shapes.get(i)).draw(g);
         }
     }
     
     public void AddShape(Shape shape){
         this.shapes.add(shape);
+    }
+    
+    public void RemoveShape(int index){
+        this.shapes.remove(index);
+        this.repaint();
+    }
+    
+    public void shearShape(int index, double factor, boolean isXShear){
+        ((ShapeOperations)shapes.get(index)).shear(factor, isXShear);
+        this.repaint();
+    }
+    public void translateShape(int index, double x, double y){
+        ((ShapeOperations)shapes.get(index)).translate(x, y);
+        this.repaint();
+    }
+    public void contractShape(int index, double factor){
+        ((ShapeOperations)shapes.get(index)).contract(factor);
+        this.repaint();
+    }
+    public void uniformScaleShape(int index, double factor){
+        ((ShapeOperations)shapes.get(index)).uniformScale(factor);
+        this.repaint();
+    }
+    public void nonUniformScaleShape(int index, double factor, boolean isVerticalScale){
+        ((ShapeOperations)shapes.get(index)).nonUniformScale(factor, isVerticalScale);
+        this.repaint();
+    }
+    public void reflectShape(int index, boolean reflectOverX){
+        ((ShapeOperations)shapes.get(index)).reflect(reflectOverX);
+        this.repaint();
+    }
+    public void rotateShape(int index, double angle){
+        ((ShapeOperations)shapes.get(index)).rotate(angle);
+        this.repaint();
     }
 }

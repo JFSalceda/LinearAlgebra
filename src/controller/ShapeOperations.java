@@ -12,15 +12,22 @@ import model.Shape;
  *
  * @author Laptop
  */
-public interface ShapeOperations {
-    public void draw(Graphics g);
-    public void shear(double factor, boolean isXShear);
-    public void rotate(double angle);
-    public void translate(double x, double y);
-    public void dilate(double factor, boolean isVerticalDilate);
-    public void contract(double factor);
-    public void nonUniformScale(double factor, boolean isVerticalScale);
-    public void uniformScale(double factor);
-    public void reflect(boolean reflectOverX);
+public abstract class ShapeOperations {
+    public boolean isSelected;
+    public boolean isShapeSelected(){
+        return this.isSelected;
+    }
+    public void selectShape(boolean isSelected){
+        this.isSelected = isSelected;
+    }
+    public abstract void draw(Graphics g);
+    public abstract void shear(double factor, boolean isXShear);
+    public abstract void rotate(double angle);
+    public abstract void translate(double x, double y);
+    public abstract void dilate(double factor, boolean isVerticalDilate);
+    public abstract void contract(double factor);
+    public abstract void nonUniformScale(double factor, boolean isVerticalScale);
+    public abstract void uniformScale(double factor);
+    public abstract void reflect(boolean reflectOverX);
     
 }

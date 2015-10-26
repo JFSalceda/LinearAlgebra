@@ -12,11 +12,12 @@ import model.Point;
  *
  * @author Laptop
  */
-public class PointOperations implements ShapeOperations{
+public class PointOperations extends ShapeOperations{
     private Point point;
     
     public PointOperations(Point point){
         this.point= point;
+        super.selectShape(false);
     }
     public void draw(Graphics g){
         g.drawLine(290+point.getXCoordinate(), 290-point.getYCoordinate(), 290+point.getXCoordinate(), 290-point.getYCoordinate());

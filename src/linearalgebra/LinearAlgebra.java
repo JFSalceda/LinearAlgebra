@@ -11,12 +11,13 @@ package linearalgebra;
  */
 import javax.swing.JFrame;
 import view.DrawingFrame;
+import view.DrawingPanel;
 
 public class LinearAlgebra {
 
     public static void main(String[] args) {
         
-        DrawingFrame draw = new DrawingFrame();
+        DrawingFrame draw = new DrawingFrame(new DrawingPanel());
         
     }
     

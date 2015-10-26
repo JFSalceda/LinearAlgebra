@@ -19,7 +19,9 @@ public class Parabola {
     
     public Parabola(double constant, double[] vertex, boolean opensVertically){
         if(vertex.length == 2){
-            this.vertex = vertex;
+            this.vertex = new double[vertex.length];
+            this.vertex[0] = vertex[0];
+            this.vertex[1] = vertex[1];
         }else{
             this.vertex = new double[]{0,0};
         }

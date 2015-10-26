@@ -15,9 +15,9 @@ import javax.swing.JFrame;
 public class DrawingFrame extends JFrame{
     
     private DrawingPanel panel;
-    public DrawingFrame(){
+    public DrawingFrame(DrawingPanel panel){
         super();
-        panel = new DrawingPanel();
+        this.panel = panel;
         this.setSize(600,600);
         this.setTitle("Shape Canvas");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
