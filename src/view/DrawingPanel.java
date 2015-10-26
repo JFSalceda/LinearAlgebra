@@ -104,4 +104,8 @@ public class DrawingPanel extends JPanel{
         ((ShapeOperations)shapes.get(index)).rotate(angle);
         this.repaint();
     }
+    
+    public void selectShape(int index, boolean isSelected){
+        ((ShapeOperations)shapes.get(index)).selectShape(isSelected);
+    }
 }
