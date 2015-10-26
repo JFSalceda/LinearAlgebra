@@ -60,18 +60,16 @@ public class HyperbolaOperations extends ShapeOperations{
         }
     }
     public void contract(double factor){
-        //le ask miki
+        this.hyperbola.setYConstant(this.hyperbola.getYConstant()/factor);
+        this.hyperbola.setXConstant(this.hyperbola.getXConstant()/factor);
     }
     public void uniformScale(double factor){
         this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
         this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
     }
-    public void nonUniformScale(double factor, boolean isVerticalScale){
-        if(isVerticalScale){
-            this.hyperbola.setYConstant(this.hyperbola.getYConstant()*factor);
-        }else{
-            this.hyperbola.setXConstant(this.hyperbola.getXConstant()*factor);
-        }
+    public void nonUniformScale(double xFactor, double yFactor){
+            this.hyperbola.setYConstant(this.hyperbola.getYConstant()*xFactor);
+            this.hyperbola.setXConstant(this.hyperbola.getXConstant()*yFactor);
     }
     public void reflect(boolean reflectOverX){
         //empty

@@ -65,9 +65,9 @@ public class VectorOperations extends ShapeOperations{
         this.vector.setXCoordinate(this.vector.getXCoordinate()*(int)factor);
         this.vector.setYCoordinate(this.vector.getYCoordinate()*(int)factor);
     }
-    public void nonUniformScale(double factor, boolean isVerticalScale){
-        this.vector.setXCoordinate(this.vector.getXCoordinate()*(int)factor);
-        this.vector.setYCoordinate(this.vector.getYCoordinate()*(int)factor);
+    public void nonUniformScale(double xFactor, double yFactor){
+        this.vector.setXCoordinate(this.vector.getXCoordinate()*(int)xFactor);
+        this.vector.setYCoordinate(this.vector.getYCoordinate()*(int)yFactor);
     }
     public void reflect(boolean reflectOverX){
         if(reflectOverX){

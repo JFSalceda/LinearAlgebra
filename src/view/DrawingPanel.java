@@ -6,6 +6,9 @@
 package view;
 
 
+import controller.EllipseOperations;
+import controller.HyperbolaOperations;
+import controller.LineSegmentOperations;
 import controller.ParabolaOperations;
 import controller.PointOperations;
 import controller.PolygonOperations;
@@ -21,6 +24,9 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import model.Ellipse;
+import model.Hyperbola;
+import model.LineSegment;
 import model.Parabola;
 import model.Point;
 import model.Polygon;
@@ -37,8 +43,20 @@ public class DrawingPanel extends JPanel{
     
     public DrawingPanel(){
         shapes = new ArrayList<ShapeOperations>();
-//        shapes.add(new VectorOperations(new Vector(120, 42)));
-//        ((ShapeOperations)shapes.get(0)).selectShape(true);
+        shapes.add(new HyperbolaOperations(new Hyperbola(42,64, new double[]{20,19}, true)));
+        ((ShapeOperations)shapes.get(0)).selectShape(true);
+        
+        button = new JButton("click");
+        button.setBounds(0, 0, 100, 100);
+        button.addActionListener((java.awt.event.ActionEvent e) -> {nonUniformScaleShape(0,2,0.5);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {contractShape(0,2);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {dilateShape(0,2,false);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {uniformScaleShape(0,2);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {translateShape(0,-150,-50);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {rotateShape(0,90);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {reflectShape(0,false);});
+               
+        this.add(button);
     }
     
     public void paintComponent(Graphics g){
@@ -92,8 +110,8 @@ public class DrawingPanel extends JPanel{
         ((ShapeOperations)shapes.get(index)).uniformScale(factor);
         this.repaint();
     }
-    public void nonUniformScaleShape(int index, double factor, boolean isVerticalScale){
-        ((ShapeOperations)shapes.get(index)).nonUniformScale(factor, isVerticalScale);
+    public void nonUniformScaleShape(int index, double xFactor, double yFactor){
+        ((ShapeOperations)shapes.get(index)).nonUniformScale(xFactor, yFactor);
         this.repaint();
     }
     public void reflectShape(int index, boolean reflectOverX){
@@ -104,7 +122,10 @@ public class DrawingPanel extends JPanel{
         ((ShapeOperations)shapes.get(index)).rotate(angle);
         this.repaint();
     }
-    
+    public void dilateShape(int index, double factor, boolean isVerticalDilate){
+        ((ShapeOperations)shapes.get(index)).dilate(factor, isVerticalDilate);
+        this.repaint();
+    }
     public void selectShape(int index, boolean isSelected){
         ((ShapeOperations)shapes.get(index)).selectShape(isSelected);
     }

@@ -42,7 +42,7 @@ public class PointOperations extends ShapeOperations{
     public void uniformScale(double factor){
         //empty
     }
-    public void nonUniformScale(double factor, boolean isVerticalScale){
+    public void nonUniformScale(double xFactor, double yFactor){
         //empty
     }
     public void reflect(boolean reflectOverX){

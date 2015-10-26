@@ -72,8 +72,8 @@ public class ParabolaOperations extends ShapeOperations{
     public void uniformScale(double factor){
         this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
-    public void nonUniformScale(double factor, boolean isVerticalScale){
-        this.parabola.setConstant(this.parabola.getConstant()*factor);
+    public void nonUniformScale(double xFactor, double yFactor){
+        //this.parabola.setConstant(this.parabola.getConstant()*factor);
     }
     public void reflect(boolean reflectOverX){
         if(reflectOverX){

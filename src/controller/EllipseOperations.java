@@ -64,18 +64,16 @@ public class EllipseOperations extends ShapeOperations{
         }
     }
     public void contract(double factor){
-        //le ask miki
+        this.ellipse.setYConstant(this.ellipse.getYConstant()/factor);
+        this.ellipse.setXConstant(this.ellipse.getXConstant()/factor);
     }
     public void uniformScale(double factor){
         this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
         this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
     }
-    public void nonUniformScale(double factor, boolean isVerticalScale){
-         if(isVerticalScale){
-            this.ellipse.setYConstant(this.ellipse.getYConstant()*factor);
-        }else{
-            this.ellipse.setXConstant(this.ellipse.getXConstant()*factor);
-        }
+    public void nonUniformScale(double xFactor, double yFactor){
+            this.ellipse.setYConstant(this.ellipse.getYConstant()*xFactor);
+            this.ellipse.setXConstant(this.ellipse.getXConstant()*yFactor);
     }
     public void reflect(boolean reflectOverX){
         if(reflectOverX){

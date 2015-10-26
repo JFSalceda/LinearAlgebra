@@ -20,6 +20,10 @@ public class LineSegment {
         if(x.length == 2 && y.length==2){
             this.x = new int[x.length];
             this.y = new int[y.length];
+            this.x[0] = x[0];
+            this.y[0] = y[0];
+            this.x[1] = x[1];
+            this.y[1] = y[1];
         }
         else{
             this.x = new int[]{0,0};

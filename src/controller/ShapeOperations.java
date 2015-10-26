@@ -26,7 +26,7 @@ public abstract class ShapeOperations {
     public abstract void translate(double x, double y);
     public abstract void dilate(double factor, boolean isVerticalDilate);
     public abstract void contract(double factor);
-    public abstract void nonUniformScale(double factor, boolean isVerticalScale);
+    public abstract void nonUniformScale(double xFactor, double yFactor);
     public abstract void uniformScale(double factor);
     public abstract void reflect(boolean reflectOverX);
     
