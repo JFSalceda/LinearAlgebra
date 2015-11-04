@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import static java.lang.Math.sqrt;
 import model.Ellipse;
+import model.Shape;
 
 /**
  *
@@ -18,6 +19,7 @@ import model.Ellipse;
 public class EllipseOperations extends ShapeOperations{
     
     private Ellipse ellipse;
+    private Ellipse oldEllipse;
     
     public EllipseOperations(Ellipse ellipse){
         this.ellipse = ellipse;
@@ -26,10 +28,21 @@ public class EllipseOperations extends ShapeOperations{
     
     public void draw(Graphics g){
         Graphics2D g2 = (Graphics2D)g;
-        int centerX = (int)this.ellipse.getXCoordinate();
-        int centerY = (int)this.ellipse.getYCoordinate();
-        double constantX = this.ellipse.getXConstant();
-        double constantY = this.ellipse.getYConstant();
+        int centerX, centerY;
+        double constantX, constantY;
+        if(oldEllipse != null){
+            centerX = (int)this.oldEllipse.getXCoordinate();
+            centerY = (int)this.oldEllipse.getYCoordinate();
+            constantX = this.oldEllipse.getXConstant();
+            constantY = this.oldEllipse.getYConstant();
+            g2.draw(new Ellipse2D.Double((290+centerX)-constantX, (290-centerY)-constantY,
+                             constantX*2,
+                             constantY*2));
+        }
+        centerX = (int)this.ellipse.getXCoordinate();
+        centerY = (int)this.ellipse.getYCoordinate();
+        constantX = this.ellipse.getXConstant();
+        constantY = this.ellipse.getYConstant();
         g2.draw(new Ellipse2D.Double((290+centerX)-constantX, (290-centerY)-constantY,
                              constantX*2,
                              constantY*2));
@@ -48,9 +61,11 @@ public class EllipseOperations extends ShapeOperations{
         //empty
     }
     public void rotate(double angle){
-        double handle = this.ellipse.getXConstant();
-        this.ellipse.setXConstant(this.ellipse.getYConstant());
-        this.ellipse.setYConstant(handle);
+        if(angle == 90 || angle == -90){
+            double handle = this.ellipse.getXConstant();
+            this.ellipse.setXConstant(this.ellipse.getYConstant());
+            this.ellipse.setYConstant(handle);
+        }
     }
     public void translate(double x, double y){
         this.ellipse.setXCoordinate(this.ellipse.getXCoordinate()+x);
@@ -81,5 +96,8 @@ public class EllipseOperations extends ShapeOperations{
         }else{
             this.ellipse.setXCoordinate(this.ellipse.getXCoordinate()*-1);
         }
+    }
+    public Shape getShape(){
+        return (Shape)this.ellipse;
     }
 }

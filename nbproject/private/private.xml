@@ -3,19 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/ShapeOperations.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/HyperbolaOperations.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/PointOperations.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/view/DrawingFrame.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/PolygonOperations.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/model/Polygon.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/ParabolaOperations.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/EllipseOperations.java</file>
             <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/LineSegmentOperations.java</file>
             <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/view/DrawingPanel.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/linearalgebra/LinearAlgebra.java</file>
+            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/PolygonOperations.java</file>
             <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/controller/VectorOperations.java</file>
-            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/model/Parabola.java</file>
+            <file>file:/C:/Users/Laptop/Desktop/Programs/ADVDISC/LinearAlgebra/LinearAlgebra/src/model/Polygon.java</file>
         </group>
     </open-files>
 </project-private>

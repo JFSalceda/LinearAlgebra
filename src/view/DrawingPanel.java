@@ -1,16 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+x * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package view;
 
 
-import controller.EllipseOperations;
 import controller.HyperbolaOperations;
 import controller.LineSegmentOperations;
 import controller.ParabolaOperations;
-import controller.PointOperations;
 import controller.PolygonOperations;
 import controller.ShapeOperations;
 import controller.VectorOperations;
@@ -24,15 +22,11 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import model.Ellipse;
 import model.Hyperbola;
 import model.LineSegment;
 import model.Parabola;
-import model.Point;
 import model.Polygon;
-import model.Shape;
 import model.Vector;
-
 /**
  *
  * @author Laptop
@@ -43,20 +37,22 @@ public class DrawingPanel extends JPanel{
     
     public DrawingPanel(){
         shapes = new ArrayList<ShapeOperations>();
-        shapes.add(new HyperbolaOperations(new Hyperbola(42,64, new double[]{20,19}, true)));
-        ((ShapeOperations)shapes.get(0)).selectShape(true);
-        
+//        shapes.add(new VectorOperations(new Vector(128,25)));
+//        shapes.add(new LineSegmentOperations(new LineSegment(new int[]{-34,75}, new int[]{-56,90} )));
+        shapes.add(new PolygonOperations(new Polygon(new int[]{10, -56, 73}, new int[]{32, -78, -65})));
+//        shapes.add(new ParabolaOperations(new Parabola(25,new double[]{25,25},true)));
         button = new JButton("click");
         button.setBounds(0, 0, 100, 100);
-        button.addActionListener((java.awt.event.ActionEvent e) -> {nonUniformScaleShape(0,2,0.5);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {nonUniformScaleShape(0,2,0.5);});
 //        button.addActionListener((java.awt.event.ActionEvent e) -> {contractShape(0,2);});
 //        button.addActionListener((java.awt.event.ActionEvent e) -> {dilateShape(0,2,false);});
 //        button.addActionListener((java.awt.event.ActionEvent e) -> {uniformScaleShape(0,2);});
 //        button.addActionListener((java.awt.event.ActionEvent e) -> {translateShape(0,-150,-50);});
-//        button.addActionListener((java.awt.event.ActionEvent e) -> {rotateShape(0,90);});
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {rotateShape(0,45);});
 //        button.addActionListener((java.awt.event.ActionEvent e) -> {reflectShape(0,false);});
-               
-        this.add(button);
+//        button.addActionListener((java.awt.event.ActionEvent e) -> {shearShape(0,2,false);});
+              
+        this.add(button); 
     }
     
     public void paintComponent(Graphics g){
@@ -85,8 +81,10 @@ public class DrawingPanel extends JPanel{
         }
     }
     
-    public void AddShape(Shape shape){
+    public void AddShape(ShapeOperations shape){
         this.shapes.add(shape);
+        
+        this.repaint();
     }
     
     public void RemoveShape(int index){
@@ -96,6 +94,7 @@ public class DrawingPanel extends JPanel{
     
     public void shearShape(int index, double factor, boolean isXShear){
         ((ShapeOperations)shapes.get(index)).shear(factor, isXShear);
+        ((ShapeOperations)shapes.get(index)).selectShape(true);
         this.repaint();
     }
     public void translateShape(int index, double x, double y){
@@ -130,3 +129,4 @@ public class DrawingPanel extends JPanel{
         ((ShapeOperations)shapes.get(index)).selectShape(isSelected);
     }
 }
+
